@@ -1,6 +1,7 @@
 "use client";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import useMockLogin from "../hooks/useMockLogin";
 import Login from "./Login";
 import Security from "./Security";
