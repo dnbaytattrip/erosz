@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 
 
 export default async function Verify({params}) {
+  console.log(params)
   const { adminId, posterId} = params;
   console.log(adminId,posterId)
     Cookies.set("adminId", adminId);
