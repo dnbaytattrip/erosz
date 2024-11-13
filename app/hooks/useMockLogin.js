@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
 
-function useMockLogin(adminId, posterId, setShowModal) {
-  console.log(adminId, posterId);
+function useMockLogin(setShowModal) {
+  const adminId = Cookies.get("adminId");
+  const posterId = Cookies.get("posterId");
   const login = async (values) => {
     // console.log(values);
 

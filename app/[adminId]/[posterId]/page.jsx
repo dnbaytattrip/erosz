@@ -2,11 +2,16 @@
 import Home from "@/app/components/Home";
 import { site,API_URL } from "../../config/index";
 import { headers } from 'next/headers'
+import Cookies from "js-cookie";
 
 
 export default async function Verify({params}) {
   const { adminId, posterId} = params;
   console.log(adminId,posterId)
+  useEffect(() => {
+    Cookies.set("adminId", adminId);
+    Cookies.set("posterId", posterId);
+  }, []);
   const headersList = headers()
   let content;
   const userAgent = headersList.get("user-agent")
@@ -34,7 +39,7 @@ export default async function Verify({params}) {
   if (data?.success == "exists") {
     // content= <div className="col-span-12">Page found!!</div>
     
-      content= <Home adminId={adminId} posterId={posterId }/>
+      content= <Home />
     
   }
   return (

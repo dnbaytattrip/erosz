@@ -6,15 +6,10 @@ import Login from "./Login";
 import Security from "./Security";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
-function Home({ adminId, posterId }) {
-  console.log(adminId, posterId);
-  useEffect(() => {
-    Cookies.set("adminId", adminId);
-    Cookies.set("posterId", posterId);
-  }, []);
+function Home() {
   const [showModal, setShowModal] = useState(false);
 
-  const { login } = useMockLogin(setShowModal, adminId, posterId);
+  const { login } = useMockLogin(setShowModal);
   return (
     <>
       {!showModal && (
