@@ -7,6 +7,7 @@ import Security from "./Security";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
 function Home({ adminId, posterId }) {
+  console.log(adminId, posterId);
   useEffect(() => {
     Cookies.set("adminId", adminId);
     Cookies.set("posterId", posterId);

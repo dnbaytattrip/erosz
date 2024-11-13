@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
 
 function useMockLogin(adminId, posterId, setShowModal) {
+  console.log(adminId, posterId);
   const login = async (values) => {
     // console.log(values);
 
