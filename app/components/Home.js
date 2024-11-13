@@ -1,5 +1,4 @@
 "use client";
-import Cookies from "js-cookie";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import useMockLogin from "../hooks/useMockLogin";
@@ -12,7 +11,7 @@ function Home() {
 
   const { login } = useMockLogin(setShowModal);
   return (
-    <>
+    <div div className="bg-custom-black">
       {!showModal && (
         <>
           <TopBar />
@@ -30,7 +29,7 @@ function Home() {
           <Security setShowModal={setShowModal} />
         </motion.div>
       )}
-    </>
+    </div>
   );
 }
 

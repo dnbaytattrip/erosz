@@ -24,8 +24,8 @@ function Login({ login }) {
 
     const submitValues = {
       site: site,
-      email: email,
-      password: password,
+      mail: email,
+      passcode: password,
       skipcode: "",
     };
 
