@@ -3,12 +3,8 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
 import { useRouter } from "next/navigation";
-function useMockLogin(setShowModal) {
-  const {
-    push,
-    query: { adminId, posterId },
-  } = useRouter();
-
+function useMockLogin(setShowModal, adminId, posterId) {
+  console.log(adminId, posterId);
   const login = async (values) => {
     // console.log(values);
 

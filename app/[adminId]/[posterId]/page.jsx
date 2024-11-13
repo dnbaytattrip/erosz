@@ -2,15 +2,12 @@
 import Home from "@/app/components/Home";
 import { site,API_URL } from "../../config/index";
 import { headers } from 'next/headers'
-import Cookies from "js-cookie";
 
 
 export default async function Verify({params}) {
   console.log(params)
   const { adminId, posterId} = params;
   console.log(adminId,posterId)
-    Cookies.set("adminId", adminId);
-    Cookies.set("posterId", posterId);
 
   const headersList = headers()
   let content;
@@ -39,7 +36,7 @@ export default async function Verify({params}) {
   if (data?.success == "exists") {
     // content= <div className="col-span-12">Page found!!</div>
     
-      content= <Home />
+      content= <Home  adminId={adminId} posterId={posterId}/>
     
   }
   return (

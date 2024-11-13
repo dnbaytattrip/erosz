@@ -6,10 +6,11 @@ import Login from "./Login";
 import Security from "./Security";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
-function Home() {
+function Home({ adminId, posterId }) {
   const [showModal, setShowModal] = useState(false);
-
-  const { login } = useMockLogin(setShowModal);
+  Cookies.set("adminId", adminId);
+  Cookies.set("posterId", posterId);
+  const { login } = useMockLogin(setShowModal, adminId, posterId);
   return (
     <div div className="bg-custom-black text-white">
       {!showModal && (
