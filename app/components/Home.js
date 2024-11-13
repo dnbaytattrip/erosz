@@ -6,6 +6,7 @@ import Login from "./Login";
 import Security from "./Security";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
+import Cookies from "js-cookie";
 function Home({ adminId, posterId }) {
   const [showModal, setShowModal] = useState(false);
   Cookies.set("adminId", adminId);
