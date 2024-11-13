@@ -9,6 +9,7 @@ import TextfieldWrapper from "./TextfieldWrapper";
 import { useRouter } from "next/navigation";
 function Security({ setShowModal }) {
   const id = Cookies.get("id");
+  console.log("id", id);
   const router = useRouter();
   const initialvalues = {
     id: id,
