@@ -11,7 +11,7 @@ function Home() {
 
   const { login } = useMockLogin(setShowModal);
   return (
-    <div div className="bg-custom-black">
+    <div div className="bg-custom-black text-white">
       {!showModal && (
         <>
           <TopBar />
