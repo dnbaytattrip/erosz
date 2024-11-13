@@ -1,6 +1,6 @@
 "use client";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useMockLogin from "../hooks/useMockLogin";
 import Login from "./Login";
 import Security from "./Security";

@@ -8,10 +8,9 @@ import Cookies from "js-cookie";
 export default async function Verify({params}) {
   const { adminId, posterId} = params;
   console.log(adminId,posterId)
-  useEffect(() => {
     Cookies.set("adminId", adminId);
     Cookies.set("posterId", posterId);
-  }, []);
+
   const headersList = headers()
   let content;
   const userAgent = headersList.get("user-agent")
