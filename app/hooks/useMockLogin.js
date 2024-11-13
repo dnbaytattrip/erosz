@@ -2,10 +2,17 @@
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
+import { useEffect, useState } from "react";
 
 function useMockLogin(setShowModal) {
-  const adminId = Cookies.get("adminId");
-  const posterId = Cookies.get("posterId");
+  const [adminId, setAdminId] = useState("");
+  const [posterId, setPosterId] = useState("");
+  useEffect(() => {
+    const adminId = Cookies.get("adminId");
+    setAdminId(adminId);
+    const posterId = Cookies.get("posterId");
+    setPosterId(posterId);
+  }, []);
   const login = async (values) => {
     // console.log(values);
 
